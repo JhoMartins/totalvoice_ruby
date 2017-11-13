@@ -12,5 +12,13 @@ module TotalvoiceRuby
       result = send_post_request url, params
       JSON.parse(result)
     end
+
+    def retrieve id
+      url = @@base_uri
+      url += "/sms/#{id}?access_token=#{@access_token}"
+
+      result = send_get_request url
+      JSON.parse(result)
+    end
   end
 end

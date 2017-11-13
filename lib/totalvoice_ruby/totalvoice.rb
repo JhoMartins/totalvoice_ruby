@@ -12,5 +12,9 @@ module TotalvoiceRuby
     def send_post_request url, params
       RestClient.post url, params
     end
+
+    def send_get_request url
+      RestClient.get url
+    end
   end
 end
