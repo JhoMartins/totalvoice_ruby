@@ -1,0 +1,9 @@
+{
+    "status": 200,
+    "sucesso": true,
+    "motivo": 0,
+    "mensagem": "Rspec test",
+    "dados": {
+        "id": 123456
+    }
+}

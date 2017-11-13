@@ -1,9 +1,21 @@
-RSpec.describe TotalvoiceRuby do
-  it "has a version number" do
-    expect(TotalvoiceRuby::VERSION).not_to be nil
-  end
+require "spec_helper"
 
-  it "does something useful" do
-    expect(false).to eq(true)
+RSpec.describe TotalvoiceRuby do
+  describe "POST create" do
+    let(:sms_json) { File.read("spec/fixtures/sms/created.json") }
+    before do
+      @message = "Rspec test"
+      @destination_number = "12123456789"
+      stub_request(:post, "https://api.totalvoice.com.br/sms?access_token=1234")
+      .to_return(status: 200, body: sms_json)
+    end
+
+    it "Api response == 200" do
+      sms = Totalvoice::Sms.new("1234")
+      response = sms.create(@destination_number, @message)
+      expect(response["status"]).to eq(200)
+      expect(response["sucesso"]).to eq(true)
+      expect(response["mensagem"]).to eq(@message)
+    end
   end
 end
