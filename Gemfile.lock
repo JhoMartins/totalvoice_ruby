@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    totalvoice_ruby (0.1.0)
+    totalvoice_ruby (1.0.1)
+      rest-client (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -54,10 +55,9 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   rake (~> 10.0)
-  rest-client
   rspec (~> 3.0)
   totalvoice_ruby!
-  webmock (~> 3.1.0)
+  webmock (~> 3.1)
 
 BUNDLED WITH
    1.16.0
